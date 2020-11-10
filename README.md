@@ -1,7 +1,7 @@
 # CliniQG4QA
 
 ## Introduction
-This repository provides source code for [CliniQG4QA: Generating Diverse Questions for Domain Adaptation of Clinical Question Answering](https://arxiv.org/abs/2010.16021) accepted by *Machine Learning for Health Workshop (ML4H) at NeurIPS 2020*
+This repository provides source code for [CliniQG4QA: Generating Diverse Questions for Domain Adaptation of Clinical Question Answering](https://arxiv.org/abs/2010.16021) accepted by *Machine Learning for Health Workshop (ML4H) at NeurIPS 2020*.
 
 *We are still refactoring and cleaning the codes, please stay tuned and check back later!*
 
@@ -25,15 +25,14 @@ After you get both datasets, please place them under [Data](./Data) directory.
 *Note that We do not have the rights to include these two datasets in this repo.*
 
 ## Preprocessing
-Run the following scripts to convert json files into plain texts (train/dev/test split ratio: 8:1:1)
+Run the following scripts to convert json files into plain texts (train/dev/test split ratio: 8:1:1):
 ```shell script
 cd Data
 python json_cleaner.py
 python text_generator.py
 cd ../
 ```		
-Run the following scripts to get cleaned-up input files (and append lexical features if desired) and prepare necessary files for QPP module
-(These scripts are under ./QG/Data/relation_5)
+Run the following scripts to get cleaned-up input files (and append lexical features if desired) and prepare necessary files for QPP module:
 ```shell script
 cd ./QG/Data/relation_5
 python pre_pre_preprocessing.py --dataset xxx
@@ -68,10 +67,10 @@ cd ../
 ```			
 		
 ## Answer Evidence Extractor:
-Follow the instuctions listed on https://github.com/huggingface/transformers/tree/master/examples/token-classification to extract raw answer evidences
+Follow the instuctions listed on https://github.com/huggingface/transformers/tree/master/examples/token-classification to extract raw answer evidences. 
 Then, run the following script to polish the extracted answer evidences (i.e. our designed heuristic rules for post-processing):
 ```shell script
-cd ./Answer Evidence Extractor
+cd ./AEE
 sh transform.sh		
 cd ../
 ```		
@@ -79,7 +78,7 @@ cd ../
 		
 ## Question Answering:	
 ### QA training:
-DrQA: Follow the instrcutions listed on https://github.com/facebookresearch/DrQA/tree/master/scripts/reader --Training to do QA model training
+DrQA: Follow the instrcutions listed on https://github.com/facebookresearch/DrQA/tree/master/scripts/reader --Training to do QA model training.
 
 ClinicalBERT: Follow the instrcutions listed on https://github.com/google-research/bert (under SQuAD 1.1 section) to do QA model training. 
 
@@ -87,11 +86,18 @@ ClinicalBERT: Follow the instrcutions listed on https://github.com/google-resear
 
 
 ### QA testing: 
-DrQA: Follow the instrcutions listed on https://github.com/facebookresearch/DrQA/tree/master/scripts/reader --Predicting to do QA model testing
+DrQA: Follow the instrcutions listed on https://github.com/facebookresearch/DrQA/tree/master/scripts/reader --Predicting to do QA model testing.
 
 ClinicalBERT: Follow the instrcutions listed on https://github.com/google-research/bert (under SQuAD 1.1 section) to do QA model testing. 
 
-Please run the offical eval script from SQuAD v1.1 (https://worksheets.codalab.org/rest/bundles/0x5d2ee15e3f2d4e34bb864df4955274e8/contents/blob/evaluate.py) to evaluate QA model performance.
+Please run the follwowing block, adapted from offical eval script of SQuAD v1.1 (https://worksheets.codalab.org/rest/bundles/0x5d2ee15e3f2d4e34bb864df4955274e8/contents/blob/evaluate.py), to evaluate QA model performance.
+```shell script
+cd ./QA
+python ./evaluate-v1.1_human_generated.py $Dataset $Prediction	
+python ./evaluate-v1.1_human_verified.py $Dataset $Prediction		
+python ./evaluate-v1.1_overall.py $Dataset $Prediction		
+cd ../
+```	
 		
 ## Citation:
 Please cite our paper if you use the codes from this repo and/or our released test set:
