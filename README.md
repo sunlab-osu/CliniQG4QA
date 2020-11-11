@@ -3,6 +3,16 @@
 ## Introduction
 This repository provides source code for [CliniQG4QA: Generating Diverse Questions for Domain Adaptation of Clinical Question Answering](https://arxiv.org/abs/2010.16021) accepted by *Machine Learning for Health Workshop (ML4H) at NeurIPS 2020*.
 
+Please cite our paper if you use the codes from this repo and/or our released test set:
+```
+@article{cliniqg4qa2020,
+      title={CliniQG4QA: Generating Diverse Questions for Domain Adaptation of Clinical Question Answering}, 
+      author={Xiang Yue and Xinliang Frederick Zhang and Ziyu Yao and Simon Lin and Huan Sun},
+      journal={arXiv preprint arXiv:2010.16021},
+      year={2020}
+}  
+```
+
 *We are still refactoring and cleaning the codes, please stay tuned and check back later!*
 
 ## Set up
@@ -99,15 +109,4 @@ python ./evaluate-v1.1_overall.py $Dataset $Prediction
 cd ../
 ```	
 		
-## Citation:
-Please cite our paper if you use the codes from this repo and/or our released test set:
-```
-@article{cliniqg4qa2020,
-      title={CliniQG4QA: Generating Diverse Questions for Domain Adaptation of Clinical Question Answering}, 
-      author={Xiang Yue and Xinliang Frederick Zhang and Ziyu Yao and Simon Lin and Huan Sun},
-      journal={arXiv preprint arXiv:2010.16021},
-      year={2020}
-}  
-```
-
 		
