@@ -3,7 +3,7 @@
 ## Introduction
 This repository provides source code for [CliniQG4QA: Generating Diverse Questions for Domain Adaptation of Clinical Question Answering](https://arxiv.org/abs/2010.16021) accepted by *Machine Learning for Health Workshop (ML4H) at NeurIPS 2020*.
 
-Please cite our paper if you use the codes from this repo and/or our released test set:
+Please cite our paper if you use the codes from this repo and/or our released [test set](https://physionet.org/content/mimic-iii-question-answer/1.0.0/):
 ```
 @article{cliniqg4qa2020,
       title={CliniQG4QA: Generating Diverse Questions for Domain Adaptation of Clinical Question Answering}, 
@@ -11,6 +11,16 @@ Please cite our paper if you use the codes from this repo and/or our released te
       journal={arXiv preprint arXiv:2010.16021},
       year={2020}
 }  
+```
+```
+@misc{https://doi.org/10.13026/j0y6-bw05,
+  doi = {10.13026/J0Y6-BW05},
+  url = {https://physionet.org/content/mimic-iii-question-answer/1.0.0/},
+  author = {Xiang Yue and Xinliang Frederick Zhang and Huan Sun},
+  title = {Annotated Question-Answer Pairs for Clinical Notes in the MIMIC-III Database},
+  publisher = {PhysioNet},
+  year = {2021}
+}
 ```
 
 *We are still refactoring and cleaning the codes, please stay tuned and check back later!*
